@@ -1,6 +1,14 @@
 # petclinic
 
-Pour installer le tout : 
+1. Pour la base de données, dans le cmd :
+
+`docker pull mysql:5.6`
+
+`docker run --name petclinic -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.6`
+
+Via mysql workbench : créer un user petclinic:petclinic et créer un schema liquibase_petclinic
+
+2. Pour installer le tout (dans visual studio code) : 
 
 `$ gradle build`
 
@@ -16,4 +24,9 @@ Rentrer dans petclinic-core
 
 `$ npm start`
 
+`$ gradle dev update`
+
 `$ gradle bootrun`
+
+
+
