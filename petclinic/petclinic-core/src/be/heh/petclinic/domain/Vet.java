@@ -1,33 +1,41 @@
 package be.heh.petclinic.domain;
 
-public class Vet {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-    private String lastname;
-    private String firstname;
-    private String speciality;
+import org.springframework.beans.support.MutableSortDefinition;
+import org.springframework.beans.support.PropertyComparator;
 
-    public void setLastname(String lastname){
-        this.lastname = lastname;
+public class Vet extends Person {
+
+    private Set<String> specialties;
+
+    protected Set<String> getSpecialtiesInternal() {
+        if (this.specialties == null) {
+            this.specialties = new HashSet<>();
+        }
+        return this.specialties;
     }
 
-    public void setFirstname(String firstname){
-        this.firstname = firstname;
+    protected void setSpecialtiesInternal(Set<String> specialties) {
+        this.specialties = specialties;
     }
 
-    public void setSpeciality(String speciality){
-        this.speciality = speciality;
+    public List<String> getSpecialties() {
+        List<String> sortedSpecs = new ArrayList<>(getSpecialtiesInternal());
+        PropertyComparator.sort(sortedSpecs, new MutableSortDefinition("name", true, true));
+        return Collections.unmodifiableList(sortedSpecs);
     }
 
-    public String getLastname(){
-        return this.lastname;
+    public int getNrOfSpecialties() {
+        return getSpecialtiesInternal().size();
     }
 
-    public String getFirstname(){
-        return this.firstname;
-    }
-
-    public String getSpeciality(){
-        return this.speciality;
+    public void addSpecialty(String specialty) {
+        getSpecialtiesInternal().add(specialty);
     }
 
 }
