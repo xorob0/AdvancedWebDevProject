@@ -24,6 +24,8 @@ Rentrer dans petclinic-react
 
 `$ npm start`
 
+Ouvrir un deuxième prompt de commande
+
 `$ gradle dev update`
 
 `$ gradle bootrun`
