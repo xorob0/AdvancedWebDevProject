@@ -12,7 +12,7 @@ Via mysql workbench : créer un user petclinic:petclinic et créer un schema liq
 
 `$ gradle build`
 
-Rentrer dans petclinic-core
+Rentrer dans petclinic-react
 
 `$ npm install`
 
