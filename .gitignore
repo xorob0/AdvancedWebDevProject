@@ -1,5 +1,14 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Build
+*.class
+*.jar
+petclinic/petclinic-core/bin
+petclinic/petclinic-core/build.gradle
+petclinic/petclinic-core/build
+petclinic/petclinic-web/build
+petclinic/petclinic-web/build.gradle
+
 # dependencies
 /node_modules
 /.pnp
@@ -21,3 +30,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+petclinic/node_modules
